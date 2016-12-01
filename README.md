@@ -2,7 +2,7 @@
 
 **Neteller driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/dercoder/omnipay-neteller.png?branch=master)](https://travis-ci.org/dercoder/omnipay-neteller)
+[![Build Status](https://travis-ci.org/dercoder/omnipay-neteller.svg?branch=master)](https://travis-ci.org/dercoder/omnipay-neteller)
 [![Coverage Status](https://coveralls.io/repos/dercoder/omnipay-neteller/badge.svg?branch=master&service=github)](https://coveralls.io/github/dercoder/omnipay-neteller?branch=master)
 
 [![Latest Stable Version](https://poser.pugx.org/dercoder/omnipay-neteller/v/stable.png)](https://packagist.org/packages/dercoder/omnipay-neteller)
