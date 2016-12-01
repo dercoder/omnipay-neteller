@@ -23,14 +23,14 @@ class FetchTransactionRequest extends AbstractRequest
         if ($transactionId = $this->getTransactionId()) {
 
             return array(
-                'id'      => $transactionId,
+                'id'      => (string) $transactionId,
                 'refType' => 'merchantRefId'
             );
 
         } elseif ($transactionReference = $this->getTransactionReference()) {
 
             return array(
-                'id' => $transactionReference
+                'id' => (string) $transactionReference
             );
 
         } else {

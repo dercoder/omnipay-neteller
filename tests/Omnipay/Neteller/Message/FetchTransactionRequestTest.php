@@ -15,26 +15,26 @@ class FetchTransactionRequestTest extends TestCase
         parent::setUp();
         $this->request = new FetchTransactionRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
-            'transactionId' => 'TX4567890'
+            'transactionId' => 4567890
         ));
     }
 
     public function testGetData()
     {
         $this->request->initialize(array(
-            'transactionId' => 'TX4567890'
+            'transactionId' => 4567890
         ));
 
         $data = $this->request->getData();
-        $this->assertSame('TX4567890', $data['id']);
+        $this->assertSame('4567890', $data['id']);
         $this->assertSame('merchantRefId', $data['refType']);
 
         $this->request->initialize(array(
-            'transactionReference' => 'RF4567890'
+            'transactionReference' => 4567890
         ));
 
         $data = $this->request->getData();
-        $this->assertSame('RF4567890', $data['id']);
+        $this->assertSame('4567890', $data['id']);
         $this->assertArrayNotHasKey('refType', $data);
 
         $this->request->initialize(array());

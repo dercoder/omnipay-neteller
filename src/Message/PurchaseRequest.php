@@ -65,14 +65,14 @@ class PurchaseRequest extends AbstractRequest
         return array(
             'paymentMethod'    => array(
                 'type'  => 'neteller',
-                'value' => $this->getEmail()
+                'value' => (string) $this->getEmail()
             ),
             'transaction'      => array(
-                'merchantRefId' => $this->getTransactionId(),
-                'amount'        => $this->getAmountInteger(),
-                'currency'      => $this->getCurrency(),
+                'merchantRefId' => (string) $this->getTransactionId(),
+                'amount'        => (int) $this->getAmountInteger(),
+                'currency'      => (string) $this->getCurrency(),
             ),
-            'verificationCode' => $this->getVerificationCode()
+            'verificationCode' => (string) $this->getVerificationCode()
         );
     }
 

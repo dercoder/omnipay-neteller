@@ -46,14 +46,14 @@ class PayoutRequest extends AbstractRequest
 
         return array(
             'payeeProfile' => array(
-                'email' => $this->getEmail()
+                'email' => (string) $this->getEmail()
             ),
             'transaction'  => array(
-                'merchantRefId' => $this->getTransactionId(),
-                'amount'        => $this->getAmountInteger(),
-                'currency'      => $this->getCurrency(),
+                'merchantRefId' => (string) $this->getTransactionId(),
+                'amount'        => (int) $this->getAmountInteger(),
+                'currency'      => (string) $this->getCurrency(),
             ),
-            'message'      => $this->getDescription()
+            'message'      => (string) $this->getDescription()
         );
     }
 

@@ -16,10 +16,10 @@ class PayoutRequestTest extends TestCase
         $this->request = new PayoutRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
             'email'            => 'netellertest_USD@neteller.com',
-            'verificationCode' => '270955',
-            'transactionId'    => 'TX4567890',
+            'verificationCode' => 270955,
+            'transactionId'    => 4567890,
             'description'      => 'Free Text Description',
-            'amount'           => '12.34',
+            'amount'           => 12.34,
             'currency'         => 'USD'
         ));
     }
@@ -28,7 +28,7 @@ class PayoutRequestTest extends TestCase
     {
         $data = $this->request->getData();
         $this->assertSame('netellertest_USD@neteller.com', $data['payeeProfile']['email']);
-        $this->assertSame('TX4567890', $data['transaction']['merchantRefId']);
+        $this->assertSame('4567890', $data['transaction']['merchantRefId']);
         $this->assertSame(1234, $data['transaction']['amount']);
         $this->assertSame('USD', $data['transaction']['currency']);
         $this->assertSame('Free Text Description', $data['message']);
