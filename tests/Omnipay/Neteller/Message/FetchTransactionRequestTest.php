@@ -44,10 +44,10 @@ class FetchTransactionRequestTest extends TestCase
 
     public function testSendDataSuccess()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'FetchTransactionSuccess.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);
@@ -56,10 +56,10 @@ class FetchTransactionRequestTest extends TestCase
 
     public function testSendDataFailure()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'FetchTransactionFailure.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);

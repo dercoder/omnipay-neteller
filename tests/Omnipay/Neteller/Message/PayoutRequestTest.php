@@ -36,10 +36,10 @@ class PayoutRequestTest extends TestCase
 
     public function testSendDataSuccess()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'PayoutSuccess.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);
@@ -48,10 +48,10 @@ class PayoutRequestTest extends TestCase
 
     public function testSendDataFailure()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'PayoutFailure.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);

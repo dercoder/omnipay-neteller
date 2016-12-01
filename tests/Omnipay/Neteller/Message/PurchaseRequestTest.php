@@ -36,10 +36,10 @@ class PurchaseRequestTest extends TestCase
 
     public function testSendDataSuccess()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'PurchaseSuccess.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);
@@ -48,10 +48,10 @@ class PurchaseRequestTest extends TestCase
 
     public function testSendDataFailure()
     {
-        $this->setMockHttpResponse([
+        $this->setMockHttpResponse(array(
             'OAuth2TokenSuccess.txt',
             'PurchaseFailure.txt'
-        ]);
+        ));
 
         $data = $this->request->getData();
         $response = $this->request->sendData($data);
