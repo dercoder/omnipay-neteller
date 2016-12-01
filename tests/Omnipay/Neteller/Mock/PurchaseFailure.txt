@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Server: Apache
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2016 11:47:55 GMT
+X-Application-Status-Code: 20003
+Connection: close
+
+{
+  "error": {
+    "code": "20003",
+    "message": "Invalid merchant account currency"
+  }
+}

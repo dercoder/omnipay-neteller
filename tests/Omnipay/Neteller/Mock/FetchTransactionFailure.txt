@@ -1,0 +1,13 @@
+HTTP/1.1 404 Not Found
+Server: Apache
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2016 12:09:19 GMT
+X-Application-Status-Code: 5269
+Connection: Keep-Alive
+
+{
+  "error": {
+    "code": "5269",
+    "message": "Entity not found"
+  }
+}

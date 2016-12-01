@@ -1,0 +1,42 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2016 12:08:10 GMT
+Connection: Keep-Alive
+
+{
+  "customer": {
+    "link": {
+      "url": "https://test.api.neteller.com/v1/customers/CUS_923DE5D6-7621-4AEC-8E3A-E017F1878906",
+      "rel": "customer",
+      "method": "GET"
+    }
+  },
+  "transaction": {
+    "merchantRefId": "583ec5f62c29b",
+    "amount": 500,
+    "currency": "USD",
+    "id": "136480508920650",
+    "transactionType": "Member to Merchant Transfer",
+    "description": "netellertest_usd@neteller.com to Test",
+    "createDate": "2016-11-30T12:28:41Z",
+    "updateDate": "2016-11-30T12:28:41Z",
+    "status": "accepted",
+    "fees":
+    [
+      {
+        "feeType": "service_fee",
+        "feeAmount": 129,
+        "feeCurrency": "USD"
+      }
+    ]
+  },
+  "links":
+  [
+    {
+      "url": "https://test.api.neteller.com/v1/payments/136480508920650",
+      "rel": "self",
+      "method": "GET"
+    }
+  ]
+}

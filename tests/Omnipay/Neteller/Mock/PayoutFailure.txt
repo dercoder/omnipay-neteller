@@ -1,0 +1,13 @@
+HTTP/1.1 402 Payment Required
+Server: Apache
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2016 11:48:53 GMT
+X-Application-Status-Code: 20020
+Connection: Keep-Alive
+
+{
+  "error": {
+    "code": "20020",
+    "message": "Insufficient balance"
+  }
+}

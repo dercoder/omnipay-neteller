@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Server: Apache
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 01 Dec 2016 12:21:20 GMT
+Connection: Keep-Alive
+
+{
+  "accessToken": "0.AQAAAVi6hAakAAAAAAAEk-CTTzgxOV1SxKkP34ttaC5r.padXx4YPgnJOtQSZ64sYrqPSe_s",
+  "tokenType": "Bearer",
+  "expiresIn": 300
+}
