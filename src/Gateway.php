@@ -78,7 +78,7 @@ class Gateway extends AbstractGateway
      *
      * @return PurchaseRequest
      */
-    public function purchase(array $options = [])
+    public function purchase(array $options = array())
     {
         return $this->createRequest('\Omnipay\Neteller\Message\PurchaseRequest', $options);
     }
@@ -88,7 +88,7 @@ class Gateway extends AbstractGateway
      *
      * @return PayoutRequest
      */
-    public function payout(array $options = [])
+    public function payout(array $options = array())
     {
         return $this->createRequest('\Omnipay\Neteller\Message\PayoutRequest', $options);
     }
@@ -98,7 +98,7 @@ class Gateway extends AbstractGateway
      *
      * @return FetchTransactionRequest
      */
-    public function fetchTransaction(array $options = [])
+    public function fetchTransaction(array $options = array())
     {
         return $this->createRequest('\Omnipay\Neteller\Message\FetchTransactionRequest', $options);
     }
