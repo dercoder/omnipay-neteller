@@ -15,7 +15,7 @@ class PurchaseRequestTest extends TestCase
         parent::setUp();
         $this->request = new PurchaseRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
-            'email'            => 'netellertest_USD@neteller.com',
+            'account'          => 'netellertest_USD@neteller.com',
             'verificationCode' => 270955,
             'transactionId'    => 4567890,
             'amount'           => 12.34,

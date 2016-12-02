@@ -16,9 +16,9 @@ class PurchaseRequest extends AbstractRequest
     /**
      * @return string|null
      */
-    public function getEmail()
+    public function getAccount()
     {
-        return $this->getParameter('email');
+        return $this->getParameter('account');
     }
 
     /**
@@ -26,9 +26,9 @@ class PurchaseRequest extends AbstractRequest
      *
      * @return self
      */
-    public function setEmail($value)
+    public function setAccount($value)
     {
-        return $this->setParameter('email', $value);
+        return $this->setParameter('account', $value);
     }
 
     /**
@@ -55,7 +55,7 @@ class PurchaseRequest extends AbstractRequest
     public function getData()
     {
         $this->validate(
-            'email',
+            'account',
             'verificationCode',
             'transactionId',
             'amount',
@@ -65,7 +65,7 @@ class PurchaseRequest extends AbstractRequest
         return array(
             'paymentMethod'    => array(
                 'type'  => 'neteller',
-                'value' => (string) $this->getEmail()
+                'value' => (string) $this->getAccount()
             ),
             'transaction'      => array(
                 'merchantRefId' => (string) $this->getTransactionId(),

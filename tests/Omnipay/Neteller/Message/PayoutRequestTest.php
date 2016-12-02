@@ -15,7 +15,7 @@ class PayoutRequestTest extends TestCase
         parent::setUp();
         $this->request = new PayoutRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(array(
-            'email'            => 'netellertest_USD@neteller.com',
+            'account'          => 'netellertest_USD@neteller.com',
             'verificationCode' => 270955,
             'transactionId'    => 4567890,
             'description'      => 'Free Text Description',
@@ -32,6 +32,14 @@ class PayoutRequestTest extends TestCase
         $this->assertSame(1234, $data['transaction']['amount']);
         $this->assertSame('USD', $data['transaction']['currency']);
         $this->assertSame('Free Text Description', $data['message']);
+
+        $this->request->setAccount(454651018446);
+        $data = $this->request->getData();
+        $this->assertSame('454651018446', $data['payeeProfile']['accountId']);
+
+        $this->request->setAccount('SomeInvalidAccount');
+        $this->setExpectedException('Omnipay\Common\Exception\InvalidRequestException', 'The account parameter must be an email or numeric value');
+        $this->request->getData();
     }
 
     public function testSendDataSuccess()

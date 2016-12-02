@@ -22,13 +22,13 @@ class GatewayTest extends GatewayTestCase
     public function testPurchase()
     {
         $request = $this->gateway->purchase(array(
-            'email'         => 'netellertest_USD@neteller.com',
+            'account'       => 'netellertest_USD@neteller.com',
             'transactionId' => 'TX9997888',
             'amount'        => '14.65',
             'currency'      => 'USD'
         ));
 
-        $this->assertSame('netellertest_USD@neteller.com', $request->getEmail());
+        $this->assertSame('netellertest_USD@neteller.com', $request->getAccount());
         $this->assertSame('TX9997888', $request->getTransactionId());
         $this->assertSame('14.65', $request->getAmount());
         $this->assertSame('USD', $request->getCurrency());
@@ -37,13 +37,13 @@ class GatewayTest extends GatewayTestCase
     public function testPayout()
     {
         $request = $this->gateway->payout(array(
-            'email'         => 'netellertest_USD@neteller.com',
+            'account'       => 'netellertest_USD@neteller.com',
             'transactionId' => 'TX8889777',
             'amount'        => '12.43',
             'currency'      => 'USD'
         ));
 
-        $this->assertSame('netellertest_USD@neteller.com', $request->getEmail());
+        $this->assertSame('netellertest_USD@neteller.com', $request->getAccount());
         $this->assertSame('TX8889777', $request->getTransactionId());
         $this->assertSame('12.43', $request->getAmount());
         $this->assertSame('USD', $request->getCurrency());

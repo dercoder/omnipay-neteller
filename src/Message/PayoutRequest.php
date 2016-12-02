@@ -3,6 +3,7 @@
 namespace Omnipay\Neteller\Message;
 
 use Guzzle\Http\Exception\BadResponseException;
+use Omnipay\Common\Exception\InvalidRequestException;
 
 /**
  * Neteller Payout Request.
@@ -16,9 +17,9 @@ class PayoutRequest extends AbstractRequest
     /**
      * @return string|null
      */
-    public function getEmail()
+    public function getAccount()
     {
-        return $this->getParameter('email');
+        return $this->getParameter('account');
     }
 
     /**
@@ -26,28 +27,28 @@ class PayoutRequest extends AbstractRequest
      *
      * @return self
      */
-    public function setEmail($value)
+    public function setAccount($value)
     {
-        return $this->setParameter('email', $value);
+        return $this->setParameter('account', $value);
     }
 
     /**
      * @return array request data
+     * @throws InvalidRequestException
      */
     public function getData()
     {
         $this->validate(
-            'email',
+            'account',
             'description',
             'transactionId',
             'amount',
             'currency'
         );
 
-        return array(
-            'payeeProfile' => array(
-                'email' => (string) $this->getEmail()
-            ),
+        $account = $this->getAccount();
+        $data = array(
+            'payeeProfile' => array(),
             'transaction'  => array(
                 'merchantRefId' => (string) $this->getTransactionId(),
                 'amount'        => (int) $this->getAmountInteger(),
@@ -55,6 +56,16 @@ class PayoutRequest extends AbstractRequest
             ),
             'message'      => (string) $this->getDescription()
         );
+
+        if (is_numeric($account)) {
+            $data['payeeProfile']['accountId'] = (string) $account;
+        } elseif (filter_var($account, FILTER_VALIDATE_EMAIL)) {
+            $data['payeeProfile']['email'] = (string) $account;
+        } else {
+            throw new InvalidRequestException('The account parameter must be an email or numeric value');
+        }
+
+        return $data;
     }
 
     /**
